@@ -64,3 +64,7 @@ def add_to_records(combined_dict):
         
     return True
     
+def load_schema(schema_path:str):
+    with open(f'./schemas/{schema_path}.json', 'r', encoding='utf-8') as f:                                                                                   
+            schema_as_json =  json.load(f)
+    return schema_as_json
