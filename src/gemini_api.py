@@ -1,30 +1,32 @@
 from google import genai
 from dotenv import load_dotenv # for hiding api key 
-import os #for hiding api
 from .utils import load_schema
 
-load_dotenv()
-my_api_key = os.getenv("GEMINI_API_KEY") 
-
-client = genai.Client(api_key = my_api_key )
 
 
-def prompt_gemini(prompt: str, schema_name:str | None = None):  #|None = None is a type hint
-
-    config = {"response_mime_type": "application/json"}
-
-    
-    if schema_name:
-        schema_json = load_schema(schema_name)
-        config["response_schema"] = schema_json
+class GeminiManager:
+    def __init__(self, api_key:str | None = None):
+        self.client = genai.Client(api_key=api_key)
+        self.model = "gemini-2.0-flash"
 
 
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=prompt,
-        config=config
+    def process_json(self, prompt: str, config: dict, schema: dict | None = None) -> any:  #Dict or None, with default value being None 
+        """This function takes a prompt (str), a config (Dict) and a schema (dict or defaults to none).
+        It sends a request to Gemini 2.0 flash and saves the response as a parsed python oject.
+        
+        """
+        
+        if schema: 
+            config["response_schema"] = schema
 
-    )
-    return response.parsed #returns it as a dictionary 
+
+
+        response = self.client.models.generate_content(
+            model= self.model,
+            contents=prompt,
+            config=config
+        )
+        
+        return response.parsed          #returns it as a python object
 

@@ -1,16 +1,16 @@
 {
     "type": "OBJECT",
     "properties": {
-        "Reservations": {
+        "reservations_availability": {
             "type": "STRING", 
             "enum": ["Yes", "No", "N/A"],
             "description": "Whether the restaurant accepts reservations."
         },
-        "Reservation_Info": {
+        "reservation_info": {
             "type": "STRING",
             "description": "Additional booking details (e.g., 'Phone only', 'Online only') in English. Use 'N/A' if empty."
         },
-        "Opening_Hours": {
+        "opening_hours": {
             "type": "ARRAY",
             "items": {
                 "type": "OBJECT",
@@ -23,5 +23,5 @@
             "description": "List of day/time slots. If no days are listed, assume Mon-Sun."
         }
     },
-    "required": ["Reservations", "Reservation_Info", "Opening_Hours"]
+    "required": ["reservations_availability", "reservation_info", "opening_hours"]
 }
