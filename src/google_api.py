@@ -46,7 +46,7 @@ class GooglePlacesManager:
                 "radius": 50.0 #Radius in Metres 
                 }   
             },
-        "languageCode": "ja" # Japanese 
+        "languageCode": "en" # Japanese 
         }
 
 

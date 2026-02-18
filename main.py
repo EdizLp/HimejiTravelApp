@@ -30,7 +30,7 @@ def main() -> None:
 
 
 
-    soup = load_html("./tests/test2")   
+    soup = load_html("./tests/test5")   
 
     tabe_info = scraper.core_tabelog_information(soup)
     
