@@ -52,13 +52,14 @@ def adding_new_html(scraper, google_manager, ai_manager):
             add_to_records(json_to_add)
             print("Oingo boingo")
 def checking_supabase_upload():
-    pick = load_restaurant_json("ChIJjasnNnloA2AR3ulf_8kYXnE")
+    pick = load_restaurant_json("ChIJW_oSLQDhVDURWuBCUakgil8")
     super = sup_format()
     test = super.format_master_list(pick)
-    print(test)
+    print(type(test["amount_google_ratings"]))
+
 
 def uploading_to_supa(supabase):
-    pick = load_restaurant_json("ChIJjasnNnloA2AR3ulf_8kYXnE")
+    pick = load_restaurant_json("ChIJW_oSLQDhVDURWuBCUakgil8")
     super = sup_format()
     test = super.format_master_list(pick)
 

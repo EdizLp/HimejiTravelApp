@@ -9,7 +9,7 @@ class Supa():
         self.simple_exports = [
                             ("Google", [
                                 ("google_id", "id"), ("phone_number", "internationalPhoneNumber"), ("google_rating", "rating"), ("google_viewport","viewport"),
-                                ("google_url", "googleMapsUri"), ("website","websiteUri"), ("google_address", "formattedAddress")
+                                ("google_url", "googleMapsUri"), ("website","websiteUri"), ("google_address", "formattedAddress"), ("amount_google_ratings", "userRatingCount")
                                         ]),
                             
                             ("Tabelog", [
